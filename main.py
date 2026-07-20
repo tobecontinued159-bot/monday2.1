@@ -48,9 +48,8 @@ STORED_PASSWORD_HASH = hashlib.pbkdf2_hmac(
 def home():
     return "Server is running..."
 
-@limiter.limit("5 per second")
-
 @app.route("/login-check")
+@limiter.limit("5 per second")
 def login_check():
     start_time = time.perf_counter()
 
